@@ -1,4 +1,7 @@
 
+/**
+ * Opponent class is a simple AI that follows the ball movement.
+ */
 class Opponent {
   
   float xPos;
@@ -21,6 +24,8 @@ class Opponent {
      rect(xPos, yPos, oppWidth, oppHeight);
   }
   
+  // Update the AI's y when the position of the ball's y is greater
+  // or less than the position of the AI.
   void update(float y) {
      
      float ballY = y;
@@ -33,6 +38,7 @@ class Opponent {
        yPos = yPos + yOppSpeed;
      }
      
+     // keep the AI within the display height
      yPos = constrain(yPos, 0, height);
   }
   
@@ -46,6 +52,7 @@ class Opponent {
      
      if(ballY < y1 && ballY > y2 && ballX + dist > xPos - oppWidth/2){
          ball.setXBallSpeed(-2.5);
+         ball.setYBallSpeed(3);
      }
   }
   

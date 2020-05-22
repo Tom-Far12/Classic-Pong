@@ -53,6 +53,10 @@ class Ball {
       xballSpeed = speed;
   }
   
+  void setYBallSpeed(float speed) {
+      yballSpeed = speed;
+  }
+  
   float getPosX() {
     return v1.x;
   }

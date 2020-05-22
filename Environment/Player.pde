@@ -45,6 +45,7 @@ class Player {
     
     if(ballY < y1 && ballY > y2 && ballX - dist < posX + w/2){
        ball.setXBallSpeed(2.5); 
+       ball.setYBallSpeed(3);
     }
   }
   
