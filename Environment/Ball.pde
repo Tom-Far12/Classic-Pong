@@ -3,69 +3,70 @@ import java.util.*;
 
 class Ball {
  
-  PVector v1;
-  
-  float posX;
-  float posY;
-  float ballWidth = 20;
-  float ballHeight = 20;
-  
-  float xballSpeed = 2.5;
-  float yballSpeed = 3;
-  float bRS;            // rotation speed
-  
-  public Ball() {
-  
-    posX = width/2;
-    posY = height/2;
+    private PVector v1;
+    private float posX;
+    private float posY;
+    private float ballWidth = 20;
+    private float ballHeight = 20;
+    private float xballSpeed = 2.5;
+    private float yballSpeed = 3;
+    private float bRS;            // rotation speed
     
-    v1 = new PVector(posX, posY);
+    public Ball() {
     
-  }
-  
-  void show() {
-    fill(255);
-    ellipseMode(CENTER);
-    ellipse(v1.x, v1.y, ballWidth, ballHeight);
-  }
-  
-  void update() {
-    v1.x = v1.x + xballSpeed;
-    v1.y = v1.y + yballSpeed;
-    
-    if(v1.y < 0 || v1.y > height){
-      yballSpeed *= -1;
+      posX = width/2;
+      posY = height/2;
+      
+      v1 = new PVector(posX, posY);
+      
     }
-    if(v1.x < 0 || v1.x > width) {
-      reset();
+    
+    public void show() {
+      fill(255);
+      ellipseMode(CENTER);
+      ellipse(v1.x, v1.y, ballWidth, ballHeight);
     }
-  }
-  
-  void reset() {
-     posX = width/2;
-     posY = height/2;
-     
-     v1.x = posX;
-     v1.y = posY;
-  }
-  
-  void setXBallSpeed(float speed) {
-      xballSpeed = speed;
-  }
-  
-  void setYBallSpeed(float speed) {
-      yballSpeed = speed;
-  }
-  
-  float getPosX() {
-    return v1.x;
-  }
-  
-  float getPosY() {
-    return v1.y;
-  }
-  
-  float getXBallSpeed() {
-    return xballSpeed;
-  }
+    
+    public void update() {
+      v1.x = v1.x + xballSpeed;
+      v1.y = v1.y + yballSpeed;
+      
+      if(v1.y < 0 || v1.y > height){
+        yballSpeed *= -1;
+      }
+      if(v1.x < 0 || v1.x > width) {
+        reset();
+      }
+    }
+    
+    public void reset() {
+       posX = width/2;
+       posY = height/2;
+       
+       v1.x = posX;
+       v1.y = posY;
+       
+       setXBallSpeed(2.5);
+       setYBallSpeed(3);
+    }
+    
+    public void setXBallSpeed(float speed) {
+        xballSpeed = speed;
+    }
+    
+    public void setYBallSpeed(float speed) {
+        yballSpeed = speed;
+    }
+    
+    public float getPosX() {
+      return v1.x;
+    }
+    
+    public float getPosY() {
+      return v1.y;
+    }
+    
+    public float getXBallSpeed() {
+      return xballSpeed;
+    }
 }

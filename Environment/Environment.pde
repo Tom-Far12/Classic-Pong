@@ -45,7 +45,7 @@
     // show the player and the update the player's steps
     player.show();
     player.update();
-    playerScore.updatePlayerScore(opp, ball);
+    playerScore.updatePlayerScore(ball, opp, player.isPlayerHasBall());
     
     // show the ball and update the ball
     ball.show();
@@ -54,7 +54,7 @@
     // show the AI opponent and update the AI
     opp.show();
     opp.update(ball.getPosY());
-    opponentScore.updateOpponentScore(player, ball);
+    opponentScore.updateOpponentScore(ball, player, opp.isOpponentHasBall());
     
     // check the movement of the ball when either hitting the player or the
     // AI opponent
@@ -65,6 +65,9 @@
   }
 }
 
+/**
+ *  Key Events
+ */
 void keyPressed() {
   
   if(key == 'p' || key == 'P'){

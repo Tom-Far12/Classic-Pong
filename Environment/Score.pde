@@ -4,49 +4,52 @@
  */
 class Score {
    
-    float xPos;
-    float yPos;
-    int scoreCounter = 0;
-    String scoreString = "0";
+    private float xPos;
+    private float yPos;
+    private int scoreCounter = 0;
+    private String scoreString = "0";
     
     public Score(float x, float y) {
         xPos = x;
         yPos = y;
     }
     
-    void showScore() {
+    public void showScore() {
        fill(255);
        textSize(50);
        text(getScoreString(), xPos, yPos);
     }
     
-    void updatePlayerScore(Opponent opp, Ball ball) {
+    public void updatePlayerScore(Ball ball, Opponent opp, boolean lastTouch) {
        
-       if(ball.getPosX() > opp.getXPos() && (ball.getPosY() < opp.getYPos() || ball.getPosY() > opp.getYPos())){
-         ++scoreCounter;
-         scoreString = Integer.toString(scoreCounter/8);
-         
+       if(lastTouch == true && ball.getPosX() > opp.getXPos()){
+          player.setPlayerHasBall(false);
+          ++scoreCounter;
+          scoreString = Integer.toString(scoreCounter);
+          lastTouch = false;
        }
        
     }
     
-    void updateOpponentScore(Player player, Ball ball) {
-     
-        if(ball.getPosX() < player.getXPos() && (ball.getPosY() < opp.getYPos() || ball.getPosY() > opp.getYPos())){
-          ++scoreCounter;
-          scoreString = Integer.toString(scoreCounter/8);
+    public void updateOpponentScore(Ball ball, Player player, boolean lastTouch) {
+        
+        if(lastTouch == true && ball.getPosX() < player.getXPos()){
+           opp.setOpponentHasBall(false);
+           ++scoreCounter;
+           scoreString = Integer.toString(scoreCounter);
+           lastTouch = false;
         }
     }
     
-    void setScore(int s){
+    public void setScore(int s){
       scoreCounter = s;
     }
     
-    float getScore() {
+    public float getScore() {
       return scoreCounter;
     }
     
-    String getScoreString() {
+    public String getScoreString() {
       return scoreString;
     }
 }

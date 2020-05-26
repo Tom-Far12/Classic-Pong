@@ -1,9 +1,12 @@
-
+/**
+ * Main Menu class is to have some separation between the start of the
+ * game.
+ */
 class MainMenu {
      
-    float menuPosX;
-    float menuPosY;
-    boolean isVisible = true;
+    private float menuPosX;
+    private float menuPosY;
+    private boolean isVisible = true;
     
     public MainMenu(boolean v) {
       
@@ -12,7 +15,7 @@ class MainMenu {
         menuPosY = height/4;
     }
   
-    void display() {
+    public void display() {
        
         PFont font;
      
@@ -28,7 +31,7 @@ class MainMenu {
        
     }
     
-    void createMenuButtons() {
+    public void createMenuButtons() {
       
         textAlign(CENTER);
         fill(255);
@@ -36,7 +39,7 @@ class MainMenu {
         text("Enter P to Play", width/2, height/4+100);
     }
     
-    void setMenuVisible(boolean visible){
+    public void setMenuVisible(boolean visible){
       isVisible = visible;
     }
 }
